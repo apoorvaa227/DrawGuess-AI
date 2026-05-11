@@ -1,6 +1,8 @@
 import base64
 import io
 import json
+import os
+import urllib.request
 from pathlib import Path
 
 import torch
@@ -15,6 +17,7 @@ from torchvision import models, transforms
 ROOT = Path(__file__).parent
 MODEL_PATH = ROOT / "runs" / "doodle_classifier" / "best_model.pt"
 LABELS_PATH = ROOT / "runs" / "doodle_classifier" / "labels.json"
+MODEL_URL = os.environ.get("MODEL_URL", "").strip() or None
 IMG_SIZE = 96
 BG_VALUE = 255
 CONTENT_THRESHOLD = 245
@@ -55,6 +58,9 @@ transform = transforms.Compose(
 
 def load_artifacts():
     global model, labels, label_to_idx
+    if (not MODEL_PATH.exists()) and MODEL_URL:
+        MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
+        urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
     if not MODEL_PATH.exists():
         raise FileNotFoundError(f"Model checkpoint not found: {MODEL_PATH}")
     if not LABELS_PATH.exists():

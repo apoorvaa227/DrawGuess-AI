@@ -13,14 +13,15 @@ env/
 .mypy_cache/
 
 # --- Model & data (do not push) ---
-runs/
+# Ignore training outputs, but keep labels.json (small + required at runtime)
+runs/**
+!runs/
+!runs/doodle_classifier/
+!runs/doodle_classifier/labels.json
 doodle/
 master_doodle_dataframe.csv
 # Root copy only; keep extension/Skribbl-words.csv tracked for the extension
 /Skribbl-words.csv
-
-# Optional: keep only labels in repo — uncomment if you want labels tracked:
-# !runs/doodle_classifier/labels.json
 
 # --- Next.js (scribble-live) ---
 scribble-live/node_modules/
