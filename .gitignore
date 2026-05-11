@@ -1,0 +1,38 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+env/
+.env
+.env.*
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# --- Model & data (do not push) ---
+runs/
+doodle/
+master_doodle_dataframe.csv
+# Root copy only; keep extension/Skribbl-words.csv tracked for the extension
+/Skribbl-words.csv
+
+# Optional: keep only labels in repo — uncomment if you want labels tracked:
+# !runs/doodle_classifier/labels.json
+
+# --- Next.js (scribble-live) ---
+scribble-live/node_modules/
+scribble-live/.next/
+scribble-live/out/
+scribble-live/dist/
+scribble-live/*.log
+
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

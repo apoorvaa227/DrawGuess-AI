@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Skribbl Doodle Guesser (Local)",
+  "version": "0.1.0",
+  "description": "Captures the skribbl.io drawing canvas and shows local model predictions.",
+  "action": {
+    "default_title": "Doodle Guesser",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab"],
+  "host_permissions": ["https://skribbl.io/*", "http://127.0.0.1:8000/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://skribbl.io/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

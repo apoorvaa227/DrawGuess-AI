@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doodle Guesser</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">Doodle Guesser</div>
+      <div class="subtitle">skribbl.io → local FastAPI → predictions</div>
+    </header>
+
+    <section class="controls">
+      <button id="captureBtn">Capture</button>
+      <button id="predictBtn" class="secondary" disabled>Predict</button>
+    </section>
+
+    <section class="status" id="status">
+      Open a skribbl.io game tab, then click Capture.
+    </section>
+
+    <section class="hint">
+      <div class="hintLabel">Hint from skribbl</div>
+      <div class="hintValue" id="hintValue">—</div>
+    </section>
+
+    <section class="preview">
+      <div class="previewLabel">Preview</div>
+      <img id="previewImg" alt="Canvas preview" />
+    </section>
+
+    <section class="results">
+      <div class="resultsLabel">Top guesses</div>
+      <ol id="resultsList"></ol>
+    </section>
+
+    <footer>
+      API: <span id="apiUrl"></span>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
+
